@@ -72,12 +72,5 @@ SELECT * FROM vw_kpi_rollups LIMIT 50;
 
 ## Power BI
 
-Import tables/views via the `scrap_analytics` connection. Use `powerbi/measure_definitions.md` for DAX measures (Scrap Rate, Rolling 28d, Pareto cumulative, etc.).
 
----
 
-## Notes
-
-- All data here is synthetic and safe.
-- Tune volume in `02_seed_data.sql` by changing date range or # of parts/lines.
-- Indexes are added for the most common filters/joins.
