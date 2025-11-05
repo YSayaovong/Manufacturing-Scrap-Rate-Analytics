@@ -1,67 +1,61 @@
 -- sql/01_schema.sql
--- Drop if re-running
-DROP TABLE IF EXISTS fact_scrap_detail CASCADE;
-DROP TABLE IF EXISTS fact_production CASCADE;
-DROP TABLE IF EXISTS dim_defect CASCADE;
-DROP TABLE IF EXISTS dim_part CASCADE;
-DROP TABLE IF EXISTS dim_line CASCADE;
-DROP TABLE IF EXISTS dim_plant CASCADE;
-DROP TABLE IF EXISTS dim_date CASCADE;
+-- Create schema + tables (PostgreSQL). Safe to re-run.
+
+CREATE SCHEMA IF NOT EXISTS sra;
 
 -- Dimensions
-CREATE TABLE dim_date (
-  date_key        INT PRIMARY KEY,        -- yyyymmdd
-  calendar_date   DATE NOT NULL,
-  week_start      DATE NOT NULL,
-  month_start     DATE NOT NULL,
-  year            INT  NOT NULL
+CREATE TABLE IF NOT EXISTS sra.dim_date (
+    date_id        date PRIMARY KEY,
+    year           int,
+    quarter        int,
+    month          int,
+    day            int,
+    week           int,
+    weekday_name   text,
+    is_weekend     boolean
 );
 
-CREATE TABLE dim_plant (
-  plant_id   SERIAL PRIMARY KEY,
-  plant_name TEXT UNIQUE NOT NULL
+CREATE TABLE IF NOT EXISTS sra.dim_line (
+    line_id        serial PRIMARY KEY,
+    line_code      text UNIQUE,
+    line_name      text
 );
 
-CREATE TABLE dim_line (
-  line_id    SERIAL PRIMARY KEY,
-  plant_id   INT REFERENCES dim_plant(plant_id),
-  line_name  TEXT NOT NULL
+CREATE TABLE IF NOT EXISTS sra.dim_product (
+    product_id     serial PRIMARY KEY,
+    sku            text UNIQUE,
+    product_name   text,
+    unit_cost      numeric(12,2) DEFAULT 0
 );
 
-CREATE TABLE dim_part (
-  part_id    SERIAL PRIMARY KEY,
-  part_name  TEXT NOT NULL,
-  family     TEXT NOT NULL
-);
-
-CREATE TABLE dim_defect (
-  defect_id   SERIAL PRIMARY KEY,
-  defect_code TEXT UNIQUE NOT NULL,
-  defect_desc TEXT NOT NULL
+CREATE TABLE IF NOT EXISTS sra.dim_defect (
+    defect_id      serial PRIMARY KEY,
+    defect_code    text UNIQUE,
+    defect_name    text
 );
 
 -- Facts
-CREATE TABLE fact_production (
-  date_key     INT REFERENCES dim_date(date_key),
-  plant_id     INT REFERENCES dim_plant(plant_id),
-  line_id      INT REFERENCES dim_line(line_id),
-  part_id      INT REFERENCES dim_part(part_id),
-  produced_qty INT NOT NULL,
-  scrap_qty    INT NOT NULL,
-  rework_qty   INT NOT NULL,
-  PRIMARY KEY(date_key, plant_id, line_id, part_id)
+CREATE TABLE IF NOT EXISTS sra.fact_production (
+    prod_id        bigserial PRIMARY KEY,
+    date_id        date REFERENCES sra.dim_date(date_id),
+    line_id        int  REFERENCES sra.dim_line(line_id),
+    product_id     int  REFERENCES sra.dim_product(product_id),
+    units_produced int  CHECK (units_produced >= 0)
 );
 
-CREATE TABLE fact_scrap_detail (
-  date_key   INT REFERENCES dim_date(date_key),
-  plant_id   INT REFERENCES dim_plant(plant_id),
-  line_id    INT REFERENCES dim_line(line_id),
-  part_id    INT REFERENCES dim_part(part_id),
-  defect_id  INT REFERENCES dim_defect(defect_id),
-  scrap_qty  INT NOT NULL,
-  PRIMARY KEY(date_key, plant_id, line_id, part_id, defect_id)
+CREATE TABLE IF NOT EXISTS sra.fact_scrap (
+    scrap_id       bigserial PRIMARY KEY,
+    date_id        date REFERENCES sra.dim_date(date_id),
+    line_id        int  REFERENCES sra.dim_line(line_id),
+    product_id     int  REFERENCES sra.dim_product(product_id),
+    defect_id      int  REFERENCES sra.dim_defect(defect_id),
+    units_scrapped int  CHECK (units_scrapped >= 0)
 );
 
 -- Helpful indexes
-CREATE INDEX ON fact_production(date_key, plant_id, line_id, part_id);
-CREATE INDEX ON fact_scrap_detail(date_key, plant_id, line_id, part_id, defect_id);
+CREATE INDEX IF NOT EXISTS idx_prod_date ON sra.fact_production(date_id);
+CREATE INDEX IF NOT EXISTS idx_scrap_date ON sra.fact_scrap(date_id);
+CREATE INDEX IF NOT EXISTS idx_prod_line ON sra.fact_production(line_id);
+CREATE INDEX IF NOT EXISTS idx_scrap_line ON sra.fact_scrap(line_id);
+CREATE INDEX IF NOT EXISTS idx_prod_product ON sra.fact_production(product_id);
+CREATE INDEX IF NOT EXISTS idx_scrap_product ON sra.fact_scrap(product_id);
