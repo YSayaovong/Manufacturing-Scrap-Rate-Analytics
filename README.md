@@ -1,4 +1,4 @@
-# Scrap Rate Analytics Engine
+# Scrap Rate Analytics
 
 This project provides a complete analytical view of manufacturing scrap behavior across multiple production lines, products, and defect categories. It models the flow of production and scrap data, computes core operational KPIs, and produces clear visual outputs for operational decision-making.
 
