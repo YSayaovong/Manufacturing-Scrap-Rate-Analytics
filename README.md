@@ -38,7 +38,6 @@ Supports both **CSV workflows** and **database pipelines**.
 - Improves engineering and supervisor decision-making with clear visuals  
 - Supports Lean/CI teams with real metrics, not gut feeling  
 
-This is the type of analysis real factories rely on every day.
 
 ---
 
