@@ -1,68 +1,94 @@
-# Scrap Rate Analytics — Manufacturing Case Study (Python + SQL + CSV)
+# 🏭 Scrap Rate Analytics — Manufacturing Cost Reduction Case Study (Python + SQL + CSV)
 
-This project delivers a full analytical system for understanding **manufacturing scrap behavior** across production lines, defect types, and daily operations. It transforms raw factory data into actionable KPIs, trend visuals, and defect insights for continuous improvement and operational decision-making.
-
----
-
-## 📌 Business Problem
-Manufacturing teams constantly fight rising scrap costs. Without clean data and consistent metrics, it’s impossible to know:
-- Which production lines are underperforming  
-- Which defects drive the majority of scrap  
-- When scrap spikes and why  
-- Whether improvements are effective  
-
-This project solves that problem by building a transparent, automated scrap-tracking analytics engine.
+This project delivers a complete analytical system designed to **reduce scrap cost**, expose financial waste, and help production teams make data-backed decisions.  
+Using Python, SQL, and structured CSV workflows, it transforms raw factory scrap data into **dollar-impact insights** that drive measurable savings.
 
 ---
 
-## 🔍 What This Project Does
-- Converts raw scrap + production records into structured datasets  
-- Calculates core KPIs: **scrap rate %, scrap quantity, defect Pareto, line performance**  
-- Flags trends, outliers, and root-cause patterns  
-- Produces static PNG charts ideal for GitHub, presentations, or factory meetings  
-- Provides a clean analytical model ready for:
-  - Dashboards  
-  - Continuous improvement (CI)  
+## 💸 Business Problem — Scrap Is Quietly Killing Margin  
+In manufacturing, scrap doesn’t just hurt quality — it destroys profit.
+
+Without structured analytics, plants struggle to answer financially critical questions:
+
+- Which production lines generate the **highest cost of scrap**?  
+- Which defects waste the most **material dollars**?  
+- When does scrap cost spike, and what causes it?  
+- Are improvement projects actually **saving money** or just shifting problems around?  
+
+This project provides the visibility needed to translate daily scrap losses into controlled, optimized operations.
+
+---
+
+## 🔍 What This Project Does (Cost-Focused)
+
+- Cleans raw scrap + production CSV files into consistent datasets  
+- Calculates operational + financial KPIs:
+  - **Scrap Cost**  
+  - **Scrap Rate %**  
+  - **Cost by Defect Category**  
+  - **Cost by Production Line**  
+  - **Unit Cost Lost**  
+  - **Daily Financial Variance**  
+- Detects trends, spikes, and repeatable defect patterns  
+- Generates static PNG visuals for engineering reviews, CI meetings, and supervisor reports  
+- Builds a repeatable analytical model ready for:
   - Daily production meetings  
-  - Lean manufacturing reviews  
+  - Lean manufacturing initiatives  
+  - CAPA validation  
+  - Monthly cost-reduction reviews  
 
-Supports both **CSV workflows** and **database pipelines**.
+All data is synthetic and created for safe portfolio demonstration.
 
 ---
 
-## 📈 Business Value
-- Removes operational blind spots by centralizing scrap metrics  
-- Shows where scrap is rising across the factory  
-- Highlights the highest-impact defect categories through Pareto analysis  
-- Strengthens reporting consistency by automating KPI calculations  
-- Improves engineering and supervisor decision-making with clear visuals  
-- Supports Lean/CI teams with real metrics, not gut feeling  
+## 💰 Business Value — Direct Cost Savings
 
+This analytics engine helps manufacturing teams understand **where money is being lost and how to stop it**.
+
+- Identifies the top scrap cost drivers in minutes  
+- Exposes high-cost defects that hide behind small scrap quantities  
+- Shows which production lines consistently lose the most money  
+- Strengthens monthly budgeting and cost reduction programs  
+- Supports Lean/CI teams with measurable, financial KPIs  
+- Replaces reactive problem-solving with proactive cost control  
+
+It finally answers the most important operational question:
+
+**“Where is our money going every single day?”**
 
 ---
 
 ## 📸 Included Visual Outputs
 
-### 📈 Scrap Rate Trend
-Visualizes daily scrap performance and highlights spikes or process drift.
+### 📈 Scrap Rate Trend (Cost Impact)
+Shows daily scrap performance and high-cost spike days.
 
 ![Scrap Rate Trend](outputs/img/scrap_rate_trend.png)
 
-### 🧰 Defect Pareto
-Shows which defects contribute the most to total scrap loss.
+---
+
+### 💵 Defect Pareto — Scrap Cost by Defect
+Reveals which defects drain the most money.
 
 ![Defect Pareto](outputs/img/pareto_defects.png)
 
-### 🏭 Scrap Rate by Production Line
-Compares scrap behavior across production lines.
+---
+
+### 🏭 Scrap Cost by Production Line
+Highlights the production lines with the highest financial waste.
 
 ![Scrap by Line](outputs/img/scrap_by_line.png)
 
-### 🔍 Outlier Detection (Production vs Scrap)
-Identifies unusual days that may indicate equipment issues or operator errors.
+---
+
+### 🔍 Outlier Detection — High-Cost Days
+Identifies abnormal days that may reflect poor setup, misfeeds, material issues, or operator errors.
 
 ![Outlier Scan](outputs/img/outliers.png)
 
 ---
 
-All data used in this project is synthetic and created solely for portfolio demonstration.
+## ✅ Summary  
+This project shows how manufacturing teams can leverage Python and SQL to reduce scrap cost, improve operational efficiency, and protect profit margins.  
+It connects the shop floor to the financial statement—turning operational waste into measurable savings.
+
