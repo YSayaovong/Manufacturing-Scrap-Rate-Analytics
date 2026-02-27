@@ -217,3 +217,5 @@ Based on the above findings, the following actions are recommended:
 - Statistical process control (2-sigma outlier detection)
 - Pareto analysis (defect cost concentration)
 - Synthetic manufacturing dataset (transformer production simulation)
+
+This project was originally performed using internal Prolec-GE production data. The dataset has been replaced with a representative simulation to protect proprietary information. The analytical structure, KPIs, and methodology reflect the actual work performed.
