@@ -4,7 +4,7 @@
 
 As a data analyst supporting a manufacturing quality function, I built this pipeline to answer the questions that matter most on the production floor: *Which defects are costing us the most? Which lines are underperforming? And are our spikes real signals or just noise?*
 
-In transformer manufacturing, scrap is more than a yield problem — it is a financial signal. At $1,200–$3,000 per unit depending on product, a single bad day can generate $78,000 in losses. Without structured analytics, engineering and quality teams are left reacting to problems they could have anticipated. This project converts raw production and scrap records into a repeatable KPI system that surfaces actionable patterns for daily production meetings, CAPA validation, and cost-reduction initiatives.
+In manufacturing, scrap is more than a yield problem — it is a financial signal. At $1,200–$3,000 per unit depending on product, a single bad day can generate $78,000 in losses. Without structured analytics, engineering and quality teams are left reacting to problems they could have anticipated. This project converts raw production and scrap records into a repeatable KPI system that surfaces actionable patterns for daily production meetings, CAPA validation, and cost-reduction initiatives.
 
 The dataset covers **180 production days (January–June 2025)** across 4 production lines, 4 product SKUs, and 5 defect categories — 350,111 units produced with 5,516 scrapped at a total financial impact of **$11,383,200**.
 
