@@ -39,3 +39,4 @@ Defect frequency identifies investigation priorities, not proven root cause. Exp
 
 ## Scope and authorship
 Independent synthetic portfolio work. The aggregation repair, checks and documentation were added with AI assistance. No employer outcomes, production rollout or workplace Python/SQL use is claimed.
+

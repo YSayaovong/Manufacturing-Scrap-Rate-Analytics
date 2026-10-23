@@ -5,6 +5,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 def main():
+    (ROOT/"outputs/img").mkdir(parents=True, exist_ok=True)
     daily = pd.read_csv(ROOT/'data/processed/kpi_daily.csv', parse_dates=['date_id'])
     pareto = pd.read_csv(ROOT/'data/processed/kpi_defect_pareto.csv')
     by_line = pd.read_csv(ROOT/'data/processed/kpi_by_line.csv')
@@ -54,3 +55,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+

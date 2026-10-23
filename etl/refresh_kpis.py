@@ -6,6 +6,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 def main():
+    (ROOT/'data/processed').mkdir(parents=True, exist_ok=True)
     dim_defect = pd.read_csv(ROOT/'data/raw/dim_defect.csv')
     fact_prod = pd.read_csv(ROOT/'data/raw/fact_production.csv', parse_dates=['date_id'])
     fact_scrap = pd.read_csv(ROOT/'data/raw/fact_scrap.csv', parse_dates=['date_id'])
@@ -34,3 +35,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
