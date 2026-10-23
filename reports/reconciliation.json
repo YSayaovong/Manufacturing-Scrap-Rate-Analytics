@@ -1,0 +1,14 @@
+{
+  "scope": "Synthetic data; SQLite aggregation compatibility check, not a PostgreSQL integration test",
+  "production_rows": 2880,
+  "scrap_rows": 4914,
+  "orphan_scrap_rows": 0,
+  "units_produced": 350111,
+  "units_scrapped": 5516,
+  "weighted_scrap_rate_pct": 1.5755,
+  "daily_and_line_totals_match": true,
+  "source_sha256": {
+    "fact_production.csv": "825765056dd9dbf203a6840915202643dc6b6eea8840a0842262014d58e2a973",
+    "fact_scrap.csv": "8ab17bdfc113d6d7457cf7a6c6d9239dd525b4a56c8617dc297fe693d9f5bd0a"
+  }
+}
