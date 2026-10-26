@@ -37,6 +37,3 @@ The check adapts only CREATE OR REPLACE VIEW to SQLite CREATE VIEW. It tests agg
 ## Analyst interpretation
 Defect frequency identifies investigation priorities, not proven root cause. Exposure, product mix and operating context matter. Estimated costs are scenario values, not recoverable savings.
 
-## Scope and authorship
-Independent synthetic portfolio work. The aggregation repair, checks and documentation were added with AI assistance. No employer outcomes, production rollout or workplace Python/SQL use is claimed.
-
