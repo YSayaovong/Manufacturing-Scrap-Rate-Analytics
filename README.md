@@ -37,3 +37,14 @@ The check adapts only CREATE OR REPLACE VIEW to SQLite CREATE VIEW. It tests agg
 ## Analyst interpretation
 Defect frequency identifies investigation priorities, not proven root cause. Exposure, product mix and operating context matter. Estimated costs are scenario values, not recoverable savings.
 
+## Hiring-manager walkthrough
+
+**Business question:** Can production and scrap facts be reconciled without inflating production totals when one production record has multiple defect records?
+
+**Approach:** Model production and scrap at their own grains, aggregate before joining, preserve unmatched scrap groups and leave undefined rates as NULL. This avoids the denominator inflation documented above.
+
+**Verification path:** Run `python validate_metrics.py`, review [the reconciliation report](reports/reconciliation.json) and inspect [the data model](docs/ERD.md). The stated 1.5755% is a sample weighted rate, not a factory benchmark.
+
+**Decision supported:** Identify which lines or defect categories merit further quality investigation. The analysis does not establish a defect's root cause or actual savings.
+
+**Relevant roles:** Engineering Business Analyst, Manufacturing Quality Analyst and Engineering Data Analyst.
